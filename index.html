@@ -37,9 +37,9 @@
 		</div>
 	</div>
 	<div class="col-md-8">
-		<div class="chat" id="chat"></div>
+		<div class="chat col-md-6" id="chat"></div>
 		<form id="messageForm">
-			<div class="form-group">
+			<div class="form-group col-md-12">
 				<label>Enter Message</label>
 				<textarea class="form-control" id="message"></textarea>
 				<br>
@@ -69,7 +69,9 @@
 		})
 		
 		socket.on('new message',function(data){
-			$chat.append('<div class="well">'+data.msg+'</div>')
+			var d = new Date();
+			fecha=d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()
+			$chat.append('<div class="well col-md-12">'+$username.val()+'<br><br>'+data.msg+'<br>'+fecha+'</div>')
 		})
 		
 		$userForm.submit(function(e){
@@ -80,7 +82,7 @@
 					$messageArea.show();
 				}
 			})
-			$username.val('');
+			//$username.val('');
 			console.log('Submitted');
 		})
 		

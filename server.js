@@ -37,9 +37,6 @@ io.sockets.on('connection',function(socket){
 		socket.username = data;
 		users.push(socket.username);
 		updateUsernames();
-		//io.sockets.emit('get users',users);
-		//io.sockets.emit('get users',username);
-		
 	});
 	
 	function updateUsernames(){
